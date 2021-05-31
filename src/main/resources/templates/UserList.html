@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <h1>用户信息如下</h1>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>age</td>
+    </tr>
+    <tr class="row1" th:each="emp:${users}">
+        <br>
+        <td>
+            <span th:text="${emp.id}"></span>
+        </td>
+
+        <td>
+            <span th:text="${emp.username}"></span>
+        </td>
+
+        <td>
+            <span th:text="${emp.password}"></span>
+        </td>
+        <td>
+            <a th:href="@{/user/delete(id=${emp.id})}">删除信息</a>&nbsp;
+            <a th:href="@{/user/find(id=${emp.id})}">修改信息</a>
+        </td>
+
+
+    </tr>
+
+    <p>
+        <input type="button" class="button" value="添加员工" onclick="location.href='/tian/add'"/>
+    </p>
+
+</div>
+
+</body>
+</html>
